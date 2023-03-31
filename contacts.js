@@ -4,7 +4,6 @@ const { v4: uuidv4 } = require('uuid');
 
 const contactsPath = path.join(__dirname, './db/contacts.json');
 
-// TODO: задокументировать каждую функцию
 async function listContacts() {
     const result = await fs.readFile(contactsPath);
     return JSON.parse(result);
@@ -22,7 +21,7 @@ async function removeContact(id) {
     const contactId = String(id);
     const contacts = await listContacts();
     const index = contacts.findIndex(item => item.id === contactId);
-    if (index === -1) {
+    if (index ===-1) {
         return null;
     }
 
@@ -51,3 +50,5 @@ module.exports = {
     removeContact,
     addContact,
 }
+
+
